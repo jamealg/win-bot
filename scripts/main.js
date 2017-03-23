@@ -1,5 +1,15 @@
 module.exports = function(robot) {
-  var annoyIntervalId, answer, enterReplies, leaveReplies, lulz;
+  robot.header(/\/win (.*) /i, function(res) {
+    var win = res.match[1];
+    var wins = robot.brain.get('wins');
+    return robot.brain.set('win', wins + "\n" + win);
+    res.reply(wins);
+  });
+
+
+  //var annoyIntervalId, answer, enterReplies, leaveReplies, lulz;
+  
+  /*
   robot.hear(/badger/i, function(res) {
     return res.send("Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS");
   });
@@ -91,4 +101,5 @@ module.exports = function(robot) {
     robot.brain.set('totalSodas', 0);
     return res.reply('zzzzz');
   });
+  */
 };
