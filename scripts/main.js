@@ -1,5 +1,5 @@
 module.exports = function(robot) {
-  robot.header(/\/win (.*) /i, function(res) {
+  robot.hear(/\/win (.*) /i, function(res) {
     var win = res.match[1];
     var wins = robot.brain.get('wins');
     return robot.brain.set('win', wins + "\n" + win);
